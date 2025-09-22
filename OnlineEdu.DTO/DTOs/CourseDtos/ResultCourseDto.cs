@@ -15,7 +15,7 @@ namespace OnlineEdu.DTO.DTOs.CourseDtos
 
         public string ImageUrl { get; set; }
 
-        public int CategoryId { get; set; }
+        public int CourseCategoryId { get; set; }
 
         public ResultCourseCategoryDto category { get; set; }
 

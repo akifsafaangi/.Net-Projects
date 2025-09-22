@@ -14,7 +14,7 @@ namespace OnlineEdu.Entity.Entities
 
         public string ImageUrl { get; set; }
 
-        public int CategoryId { get; set; }
+        public int CourseCategoryId { get; set; }
 
         public CourseCategory category { get; set; }
 
