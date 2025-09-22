@@ -1,0 +1,36 @@
+# .NET
+.vs/
+.vscode/
+.idea/
+
+# .NET Core
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer packages
+*.appx
+*.appxbundle
+
+# macOS
+.DS_Store
+
+# Thumbnails
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
