@@ -9,14 +9,14 @@ namespace OnlineEdu.Bussiness.Abstract
 {
     public interface IGenericService<T> where T : class
     {
-        List<T> GetAll();
-        T GetById(int id);
-        T GetByFilter(Expression<Func<T, bool>> predicate);
-        void Create(T entity);
-        void Update(T entity);
-        T Delete(int id);
-        int Count();
-        int FilteredCount(Expression<Func<T, bool>> predicate);
-        List<T> GetFilteredList(Expression<Func<T, bool>> predicate);
+        Task<int> CountAsync();
+        Task CreateAsync(T entity);
+        Task<T> DeleteAsync(int id);
+        Task<int> FilteredCountAsync(Expression<Func<T, bool>> predicate);
+        Task<List<T>> GetAllAsync();
+        Task<T> GetByFilterAsync(Expression<Func<T, bool>> predicate);
+        Task<T> GetByIdAsync(int id);
+        Task<List<T>> GetFilteredListAsync(Expression<Func<T, bool>> predicate);
+        Task UpdateAsync(T entity);
     }
 }

@@ -11,49 +11,49 @@ namespace OnlineEdu.Bussiness.Concrete
 {
     public class GenericManager<T>(IRepository<T> _repository) : IGenericService<T> where T : class
     {
-        public int Count()
+        public async Task<int> CountAsync()
         {
-            return _repository.Count();
+            return await _repository.CountAsync();
         }
 
-        public void Create(T entity)
+        public async Task CreateAsync(T entity)
         {
-            _repository.Create(entity);
+            await _repository.CreateAsync(entity);
         }
 
-        public T Delete(int id)
+        public async Task<T> DeleteAsync(int id)
         {
-           return _repository.Delete(id);
+            return await _repository.DeleteAsync(id);
         }
 
-        public int FilteredCount(Expression<Func<T, bool>> predicate)
+        public async Task<int> FilteredCountAsync(Expression<Func<T, bool>> predicate)
         {
-            return _repository.FilteredCount(predicate);
+            return await _repository.FilteredCountAsync(predicate);
         }
 
-        public List<T> GetAll()
+        public async Task<List<T>> GetAllAsync()
         {
-            return _repository.GetAll();
+            return await _repository.GetAllAsync();
         }
 
-        public T GetByFilter(Expression<Func<T, bool>> predicate)
+        public async Task<T> GetByFilterAsync(Expression<Func<T, bool>> predicate)
         {
-            return _repository.GetByFilter(predicate);
+            return await _repository.GetByFilterAsync(predicate);
         }
 
-        public T GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return _repository.GetById(id);
+            return await _repository.GetByIdAsync(id);
         }
 
-        public List<T> GetFilteredList(Expression<Func<T, bool>> predicate)
+        public async Task<List<T>> GetFilteredListAsync(Expression<Func<T, bool>> predicate)
         {
-            return _repository.GetFilteredList(predicate);
+            return await _repository.GetFilteredListAsync(predicate);
         }
 
-        public void Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            _repository.Update(entity);
+            await _repository.UpdateAsync(entity);
         }
     }
 }

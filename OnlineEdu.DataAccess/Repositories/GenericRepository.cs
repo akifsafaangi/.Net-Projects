@@ -21,54 +21,54 @@ namespace OnlineEdu.DataAccess.Repositories
 
         public DbSet<T> Table { get => _context.Set<T>(); }
 
-        public int Count()
+        public async Task<int> CountAsync()
         {
-            return Table.Count();
+            return await Table.CountAsync();
         }
 
-        public void Create(T entity)
+        public async Task CreateAsync(T entity)
         {
-            Table.Add(entity);
-            _context.SaveChanges();
+            await Table.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public T Delete(int id)
+        public async Task<T> DeleteAsync(int id)
         {
-            var entity = Table.Find(id);
+            var entity = await Table.FindAsync(id);
             Table.Remove(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return entity;
         }
 
-        public int FilteredCount(Expression<Func<T, bool>> predicate)
+        public async Task<int> FilteredCountAsync(Expression<Func<T, bool>> predicate)
         {
-            return Table.Where(predicate).Count();
+            return await Table.Where(predicate).CountAsync();
         }
 
-        public List<T> GetAll()
+        public async Task<List<T>> GetAllAsync()
         {
-            return Table.ToList();
+            return await Table.ToListAsync();
         }
 
-        public T GetByFilter(Expression<Func<T, bool>> predicate)
+        public async Task<T> GetByFilterAsync(Expression<Func<T, bool>> predicate)
         {
-            return Table.Where(predicate).FirstOrDefault();
+            return await Table.Where(predicate).FirstOrDefaultAsync();
         }
 
-        public T GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return Table.Find(id);
+            return await Table.FindAsync(id);
         }
 
-        public List<T> GetFilteredList(Expression<Func<T, bool>> predicate)
+        public async Task<List<T>> GetFilteredListAsync(Expression<Func<T, bool>> predicate)
         {
-            return Table.Where(predicate).ToList();
+            return await Table.Where(predicate).ToListAsync();
         }
 
-        public void Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             Table.Update(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }
